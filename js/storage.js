@@ -32,6 +32,17 @@ export function loadState() {
           state.settings.theme = { ...DEFAULT_THEME };
       }
 
+      let needsMigrationSave = false;
+      if (state.settings.theme.titleBarIcon === 'fa-fire') {
+          state.settings.theme.titleBarIcon = 'assets/dino.png';
+          needsMigrationSave = true;
+      }
+      if (state.settings.theme.titleBarText === 'HESTIA') {
+          state.settings.theme.titleBarText = 'Dashboard';
+          needsMigrationSave = true;
+      }
+      if (needsMigrationSave) saveState();
+
       console.info("[storage] State loaded.");
       return state;
     }
