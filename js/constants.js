@@ -15,7 +15,7 @@ export const DEFAULT_THEME = {
     // UI Toggles
     outlines: true,
     shadow: true,
-    titleBarIcon: "fa-fire",
+    titleBarIcon: "assets/dino.png",
     titleBarText: "HESTIA",
 
     // Semantic Colors (Defaults)

@@ -62,9 +62,13 @@ export function applyTheme(theme) {
 
     // 5. Header Info
     const headerTitle = qs('#headerTitle');
-    const iconClass = theme.titleBarIcon || "fa-fire";
+    const iconClass = theme.titleBarIcon || "assets/dino.png";
     if(headerTitle) {
-        headerTitle.innerHTML = `<i class="fa-solid ${iconClass}"></i> ${theme.titleBarText || "HESTIA"}`;
+        if (iconClass.match(/\.(png|jpe?g|gif|svg)$/i) || iconClass.includes('/')) {
+            headerTitle.innerHTML = `<img src="${iconClass}" alt="Logo" style="height: 1.2em; vertical-align: middle; margin-right: 8px;"> ${theme.titleBarText || "HESTIA"}`;
+        } else {
+            headerTitle.innerHTML = `<i class="fa-solid ${iconClass}"></i> ${theme.titleBarText || "HESTIA"}`;
+        }
     }
 }
 
